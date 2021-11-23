@@ -27,7 +27,7 @@ enum HttpMethod: String {
 extension APIComponent {
     var headers: HttpHeaders? {
         return ["content-type": "application/json",
-                "Accept": "application/json"]
+                "Accept": "application/vnd.github.v3+json"]
     }
     var baseUrl: String {
         return APIEnviromentManager.shared.baseURL

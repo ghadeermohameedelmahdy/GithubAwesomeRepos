@@ -8,6 +8,8 @@ target 'GithubAwesomeRepos' do
    
    #ui pods
      pod 'lottie-ios'
+   #navigator pod
+     pod 'XCoordinator', '~> 2.0'
   target 'GithubAwesomeReposTests' do
     inherit! :search_paths
     # Pods for testing

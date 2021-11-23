@@ -1,16 +1,22 @@
 PODS:
   - lottie-ios (3.2.3)
+  - XCoordinator (2.0.7):
+    - XCoordinator/Core (= 2.0.7)
+  - XCoordinator/Core (2.0.7)
 
 DEPENDENCIES:
   - lottie-ios
+  - XCoordinator (~> 2.0)
 
 SPEC REPOS:
   trunk:
     - lottie-ios
+    - XCoordinator
 
 SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: bea557e457588d8c86978ab70585c9e6ffa1a8d5
+PODFILE CHECKSUM: 7a034681138b220542e77b14d088aa9e99f3426b
 
 COCOAPODS: 1.11.2

@@ -35,6 +35,13 @@ struct GithubRepoModel: Codable {
     var issuesURL, pullsURL, milestonesURL, notificationsURL: String?
     var labelsURL, releasesURL: String?
     var deploymentsURL: String?
+    var createdAt, updatedAt, pushedAt: String?
+    var gitURL, sshURL: String?
+    var homepage: String?
+    var language: String?
+    var visibility: String?
+    var defaultBranch: String?
+    var networkCount, subscribersCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -82,6 +89,17 @@ struct GithubRepoModel: Codable {
         case labelsURL = "labels_url"
         case releasesURL = "releases_url"
         case deploymentsURL = "deployments_url"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case pushedAt = "pushed_at"
+        case gitURL = "git_url"
+        case sshURL = "ssh_url"
+        case homepage
+        case language
+        case visibility
+        case defaultBranch = "default_branch"
+        case networkCount = "network_count"
+        case subscribersCount = "subscribers_count"
     }
 }
 
