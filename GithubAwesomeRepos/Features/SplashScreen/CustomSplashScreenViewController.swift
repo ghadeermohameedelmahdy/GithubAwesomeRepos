@@ -7,8 +7,10 @@
 
 import UIKit
 import Lottie
+import XCoordinator
 class CustomSplashScreenViewController: UIViewController {
     @IBOutlet weak var logoLottieView: AnimationView!
+    var router: StrongRouter<AppRoute>?
     // MARK:- life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +18,9 @@ class CustomSplashScreenViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        logoLottieView.play { isFinished in
+        logoLottieView.play {[weak self] isFinished in
             if isFinished {
-                NavigationController.shared.presentHome(from: self)
+                self?.router?.trigger(.home)
             }
         }
     }

@@ -26,6 +26,9 @@ class GithubRepoItemTableViewCell: UITableViewCell {
         // Initialization code
         setupUI()
     }
+    override func layoutSubviews() {
+        setupUI()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
