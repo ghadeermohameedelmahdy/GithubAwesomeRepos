@@ -46,6 +46,8 @@
 		E37D504B274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D5049274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift */; };
 		E37D504C274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37D504A274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib */; };
 		E37D504E274D7BD600DC8A6F /* DataListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D504D274D7BD600DC8A6F /* DataListCellViewModel.swift */; };
+		E37D5050274D93CF00DC8A6F /* GithubRepoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D504F274D93CF00DC8A6F /* GithubRepoDetailsViewController.swift */; };
+		E37D5052274D965600DC8A6F /* Design System.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D5051274D965600DC8A6F /* Design System.swift */; };
 		FBA87B663FD36ABEF0FCB869 /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75D3CC6DE72AB6EB2F8998E /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,8 @@
 		E37D5049274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoItemTableViewCell.swift; sourceTree = "<group>"; };
 		E37D504A274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GithubRepoItemTableViewCell.xib; sourceTree = "<group>"; };
 		E37D504D274D7BD600DC8A6F /* DataListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListCellViewModel.swift; sourceTree = "<group>"; };
+		E37D504F274D93CF00DC8A6F /* GithubRepoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoDetailsViewController.swift; sourceTree = "<group>"; };
+		E37D5051274D965600DC8A6F /* Design System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design System.swift"; sourceTree = "<group>"; };
 		E5C80F2CAA93DA6EE2C569C0 /* Pods-GithubAwesomeRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubAwesomeRepos.debug.xcconfig"; path = "Target Support Files/Pods-GithubAwesomeRepos/Pods-GithubAwesomeRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		F9285EFC7B056FD8A85B5204 /* Pods_GithubAwesomeReposTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubAwesomeReposTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -287,6 +291,7 @@
 			children = (
 				E37D4FF4274C08F700DC8A6F /* ColorPalette.swift */,
 				E37D5027274C516C00DC8A6F /* FontStyle.swift */,
+				E37D5051274D965600DC8A6F /* Design System.swift */,
 			);
 			path = "App Style";
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 		E37D502A274C5A4F00DC8A6F /* GithubRepoDetails */ = {
 			isa = PBXGroup;
 			children = (
+				E37D504F274D93CF00DC8A6F /* GithubRepoDetailsViewController.swift */,
 			);
 			path = GithubRepoDetails;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 				E37D501B274C127500DC8A6F /* APIEnvironmentManager.swift in Sources */,
 				E37D5012274C0A3900DC8A6F /* UIViewExt.swift in Sources */,
 				E37D5010274C0A2700DC8A6F /* TableViewCellExt.swift in Sources */,
+				E37D5050274D93CF00DC8A6F /* GithubRepoDetailsViewController.swift in Sources */,
 				E37D4FFB274C094600DC8A6F /* APIComponent.swift in Sources */,
 				E37D5023274C1A2E00DC8A6F /* GithubReposUsecaseProtocol.swift in Sources */,
 				E37D501E274C196400DC8A6F /* GithubRepoModel.swift in Sources */,
@@ -661,6 +668,7 @@
 				E37D5026274C1B0600DC8A6F /* GithubReposUsecase.swift in Sources */,
 				E37D503B274C632000DC8A6F /* GithubReposListViewController.swift in Sources */,
 				E37D4FC0274C020700DC8A6F /* GithubAwesomeRepos.xcdatamodeld in Sources */,
+				E37D5052274D965600DC8A6F /* Design System.swift in Sources */,
 				E37D5034274C613F00DC8A6F /* UIViewControllerExt.swift in Sources */,
 				E37D5019274C110D00DC8A6F /* GithubReposAPIComponents.swift in Sources */,
 				E37D500C274C09F500DC8A6F /* ImageViewExt.swift in Sources */,

@@ -13,6 +13,7 @@ class GithubRepoItemTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var detailsLabel: UILabel!
+    @IBOutlet weak var parentView: UIView!
     
     var cellViewModel: DataListCellViewModel?  {
         didSet {
@@ -23,19 +24,27 @@ class GithubRepoItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupUI()
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
     private func setupData( _ cellViewModel: DataListCellViewModel?) {
         cellImage.loadImageUsingCache(withUrl: cellViewModel?.imageURL ?? "")
         titleLabel.text = cellViewModel?.titleText
         subtitleLabel.text = cellViewModel?.subTitleText
         detailsLabel.text = cellViewModel?.extraDetails ?? nil
         loadModelDetailsIfNeeded()
+    }
+    private func setupUI () {
+        let colorPalette = DesignSystem.shared.choosedColorPalette
+        titleLabel.textColor = colorPalette.headTextColor
+        subtitleLabel.textColor = colorPalette.titleTextColor
+        detailsLabel.textColor = colorPalette.smallTextColor
+        self.parentView.backgroundColor = colorPalette.basicBackgroundColor
     }
     func setupDetails (requiredDetails: String?) {
         detailsLabel.text = requiredDetails

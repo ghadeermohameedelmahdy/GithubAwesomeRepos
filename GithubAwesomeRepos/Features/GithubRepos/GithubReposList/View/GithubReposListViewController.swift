@@ -17,10 +17,10 @@ class GithubReposListViewController: UIViewController {
     // MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewWillAppear(_ animated: Bool) {
         setupUI()
         initViewModel()
+    }
+    override func viewWillAppear(_ animated: Bool) {
     }
     // MARK:- Helper functions
     private func initViewModel(){
@@ -45,4 +45,7 @@ class GithubReposListViewController: UIViewController {
     }
     
     // MARK:- IBActions
+    @IBAction func colorThemeButton(_ sender: UISwitch) {
+        DesignSystem.shared.currentColorPaletteType = sender.isOn ? .colorPaletteSecond : .colorPaletteOne
+    }
 }

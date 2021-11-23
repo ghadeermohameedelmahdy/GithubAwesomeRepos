@@ -79,6 +79,7 @@
             <connections>
                 <outlet property="cellImage" destination="Ajn-33-5O2" id="o7H-oa-zrv"/>
                 <outlet property="detailsLabel" destination="Lt5-AP-J2A" id="wmu-q4-YB3"/>
+                <outlet property="parentView" destination="xHB-VQ-huF" id="0gD-ct-kQR"/>
                 <outlet property="subtitleLabel" destination="hFb-oL-DgO" id="NKT-qJ-w1U"/>
                 <outlet property="titleLabel" destination="gqj-xD-xxv" id="rQL-EQ-Thb"/>
             </connections>

@@ -31,9 +31,6 @@ extension  GithubReposListViewController: UITableViewDataSource, UITableViewDele
     }
     
     // MARK:- Tableview delegate
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "All Repos"
-    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }

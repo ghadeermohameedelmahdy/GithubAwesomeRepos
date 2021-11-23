@@ -22,7 +22,7 @@ class DataListCellViewModel: NSObject {
     
     static func createCellDataSource(with data: [GithubRepoModel]) -> [DataListCellViewModel] {
        return data.compactMap { model in
-           DataListCellViewModel(titleText: model.name, subTitleText: model.owner?.login, imageURL: model.owner?.avatarURL,detailsURL: model.url, extraDetails: model.createdAt)
+           DataListCellViewModel(titleText: "Repository Name : \(model.name ?? "")" , subTitleText: "Repository Name : \(model.owner?.login ?? "")", imageURL: model.owner?.avatarURL,detailsURL: model.url, extraDetails: model.createdAt != nil ? "Created At : \(model.createdAt ?? "")" : nil)
         }
     }
 }
