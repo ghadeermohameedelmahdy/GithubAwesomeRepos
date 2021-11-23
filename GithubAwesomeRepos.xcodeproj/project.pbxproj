@@ -42,6 +42,10 @@
 		E37D5039274C623D00DC8A6F /* AppStoryBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D5038274C623D00DC8A6F /* AppStoryBoards.swift */; };
 		E37D503B274C632000DC8A6F /* GithubReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D503A274C631F00DC8A6F /* GithubReposListViewController.swift */; };
 		E37D503D274C650800DC8A6F /* GithubReposStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */; };
+		E37D5040274D57C300DC8A6F /* GithubReposTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D503F274D57C300DC8A6F /* GithubReposTableView.swift */; };
+		E37D504B274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D5049274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift */; };
+		E37D504C274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37D504A274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib */; };
+		E37D504E274D7BD600DC8A6F /* DataListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D504D274D7BD600DC8A6F /* DataListCellViewModel.swift */; };
 		FBA87B663FD36ABEF0FCB869 /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75D3CC6DE72AB6EB2F8998E /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +111,10 @@
 		E37D5038274C623D00DC8A6F /* AppStoryBoards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryBoards.swift; sourceTree = "<group>"; };
 		E37D503A274C631F00DC8A6F /* GithubReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListViewController.swift; sourceTree = "<group>"; };
 		E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GithubReposStoryBoard.storyboard; sourceTree = "<group>"; };
+		E37D503F274D57C300DC8A6F /* GithubReposTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposTableView.swift; sourceTree = "<group>"; };
+		E37D5049274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoItemTableViewCell.swift; sourceTree = "<group>"; };
+		E37D504A274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GithubRepoItemTableViewCell.xib; sourceTree = "<group>"; };
+		E37D504D274D7BD600DC8A6F /* DataListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListCellViewModel.swift; sourceTree = "<group>"; };
 		E5C80F2CAA93DA6EE2C569C0 /* Pods-GithubAwesomeRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubAwesomeRepos.debug.xcconfig"; path = "Target Support Files/Pods-GithubAwesomeRepos/Pods-GithubAwesomeRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		F9285EFC7B056FD8A85B5204 /* Pods_GithubAwesomeReposTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubAwesomeReposTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -230,10 +238,9 @@
 		E37D4FEA274C031900DC8A6F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E37D5035274C617300DC8A6F /* App Navigation */,
+				E37D503E274D52B300DC8A6F /* GithubRepos */,
 				E37D502D274C5DCA00DC8A6F /* SplashScreen */,
-				E37D502A274C5A4F00DC8A6F /* GithubRepoDetails */,
-				E37D5029274C5A4200DC8A6F /* GithubReposList */,
-				E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -241,7 +248,6 @@
 		E37D4FF3274C08E300DC8A6F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				E37D5035274C617300DC8A6F /* App Navigation */,
 				E37D500A274C09DC00DC8A6F /* Extensions */,
 				E37D5001274C09B600DC8A6F /* App Style */,
 			);
@@ -251,8 +257,6 @@
 		E37D4FF6274C090200DC8A6F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				E37D5021274C1A0300DC8A6F /* Usecase */,
-				E37D501C274C194500DC8A6F /* Model */,
 				E37D4FFC274C096B00DC8A6F /* API */,
 			);
 			path = Domain;
@@ -290,6 +294,7 @@
 		E37D500A274C09DC00DC8A6F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E37D5038274C623D00DC8A6F /* AppStoryBoards.swift */,
 				E37D500B274C09F500DC8A6F /* ImageViewExt.swift */,
 				E37D500D274C0A0500DC8A6F /* StringExt.swift */,
 				E37D500F274C0A2700DC8A6F /* TableViewCellExt.swift */,
@@ -311,25 +316,19 @@
 		E37D5021274C1A0300DC8A6F /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
-				E37D5024274C1AD100DC8A6F /* Github Repos Feature */,
-			);
-			path = Usecase;
-			sourceTree = "<group>";
-		};
-		E37D5024274C1AD100DC8A6F /* Github Repos Feature */ = {
-			isa = PBXGroup;
-			children = (
 				E37D5022274C1A2E00DC8A6F /* GithubReposUsecaseProtocol.swift */,
 				E37D5025274C1B0600DC8A6F /* GithubReposUsecase.swift */,
 			);
-			path = "Github Repos Feature";
+			path = Usecase;
 			sourceTree = "<group>";
 		};
 		E37D5029274C5A4200DC8A6F /* GithubReposList */ = {
 			isa = PBXGroup;
 			children = (
-				E37D502B274C5A7700DC8A6F /* GithubReposListViewModel.swift */,
-				E37D503A274C631F00DC8A6F /* GithubReposListViewController.swift */,
+				E37D5021274C1A0300DC8A6F /* Usecase */,
+				E37D501C274C194500DC8A6F /* Model */,
+				E37D5042274D5B9100DC8A6F /* Viewmodel */,
+				E37D5041274D5B8700DC8A6F /* View */,
 			);
 			path = GithubReposList;
 			sourceTree = "<group>";
@@ -362,9 +361,46 @@
 			isa = PBXGroup;
 			children = (
 				E37D5036274C619000DC8A6F /* NavigationController.swift */,
-				E37D5038274C623D00DC8A6F /* AppStoryBoards.swift */,
 			);
 			path = "App Navigation";
+			sourceTree = "<group>";
+		};
+		E37D503E274D52B300DC8A6F /* GithubRepos */ = {
+			isa = PBXGroup;
+			children = (
+				E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */,
+				E37D5029274C5A4200DC8A6F /* GithubReposList */,
+				E37D502A274C5A4F00DC8A6F /* GithubRepoDetails */,
+			);
+			path = GithubRepos;
+			sourceTree = "<group>";
+		};
+		E37D5041274D5B8700DC8A6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E37D5046274D5C3A00DC8A6F /* cell */,
+				E37D503F274D57C300DC8A6F /* GithubReposTableView.swift */,
+				E37D503A274C631F00DC8A6F /* GithubReposListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E37D5042274D5B9100DC8A6F /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				E37D502B274C5A7700DC8A6F /* GithubReposListViewModel.swift */,
+				E37D504D274D7BD600DC8A6F /* DataListCellViewModel.swift */,
+			);
+			path = Viewmodel;
+			sourceTree = "<group>";
+		};
+		E37D5046274D5C3A00DC8A6F /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E37D5049274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift */,
+				E37D504A274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +517,7 @@
 				E37D4FC2274C020B00DC8A6F /* Assets.xcassets in Resources */,
 				E37D4FBD274C020700DC8A6F /* Main.storyboard in Resources */,
 				E37D503D274C650800DC8A6F /* GithubReposStoryBoard.storyboard in Resources */,
+				E37D504C274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +651,9 @@
 				E37D4FFB274C094600DC8A6F /* APIComponent.swift in Sources */,
 				E37D5023274C1A2E00DC8A6F /* GithubReposUsecaseProtocol.swift in Sources */,
 				E37D501E274C196400DC8A6F /* GithubRepoModel.swift in Sources */,
+				E37D504B274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.swift in Sources */,
 				E37D4FF9274C091A00DC8A6F /* NetworkManager.swift in Sources */,
+				E37D504E274D7BD600DC8A6F /* DataListCellViewModel.swift in Sources */,
 				E37D4FF5274C08F700DC8A6F /* ColorPalette.swift in Sources */,
 				E37D5039274C623D00DC8A6F /* AppStoryBoards.swift in Sources */,
 				E37D502C274C5A7700DC8A6F /* GithubReposListViewModel.swift in Sources */,
@@ -626,6 +665,7 @@
 				E37D5019274C110D00DC8A6F /* GithubReposAPIComponents.swift in Sources */,
 				E37D500C274C09F500DC8A6F /* ImageViewExt.swift in Sources */,
 				E37D5037274C619000DC8A6F /* NavigationController.swift in Sources */,
+				E37D5040274D57C300DC8A6F /* GithubReposTableView.swift in Sources */,
 				E37D5016274C0FBF00DC8A6F /* NetworkReachability.swift in Sources */,
 				E37D5028274C516C00DC8A6F /* FontStyle.swift in Sources */,
 				E37D4FFE274C097B00DC8A6F /* APIError.swift in Sources */,

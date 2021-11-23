@@ -12,6 +12,7 @@ class NavigationController {
     private init (){}
     func presentHome (from parentVC: UIViewController) {
         let homeVC = GithubReposListViewController.instaintiate(on: .githubRepos)
+        homeVC.dataViewModel = GithubReposListViewModel()
         homeVC.modalPresentationStyle = .fullScreen
         parentVC.present(homeVC, animated: true, completion: nil)
     }

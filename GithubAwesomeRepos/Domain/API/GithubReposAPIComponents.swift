@@ -8,8 +8,17 @@
 import Foundation
 
 struct GithubReposAPIComponents: APIComponent {
-   
-    var path: String = "/repositories"
+    enum GithubReposEndPoint {
+    case reposList
+    }
+    var requestType: GithubReposEndPoint
+    
+    var path: String {
+        switch requestType {
+        case .reposList:
+            return "/repositories"
+        }
+    }
     var method: HttpMethod = .get
     var parameter: HttpParameters? = nil
 }

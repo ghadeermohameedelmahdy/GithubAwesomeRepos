@@ -14,34 +14,47 @@ class NetworkManager {
         self.session = session
     }
     func performNetworRequest<T: Decodable>(_ apiComponent: APIComponent, completion: @escaping ResponseHandler<T>) {
-            guard Reachability.isConnectedToNetwork() else {
-                completion(.failure(APIError.noConnetion))
+        guard Reachability.isConnectedToNetwork() else {
+            completion(.failure(APIError(type: .noConnetion, message: "no connecttion")))
             return
         }
-        session.dataTask(with: buildRequest(apiComponent)) { (data, response, error) in
+        requestDataTask(url: buildRequest(apiComponent), completion: completion)
+    }
+    func performNetworRequest<T: Decodable>(urlStr: String, completion: @escaping ResponseHandler<T>) {
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        requestDataTask(url: URLRequest(url: url), completion: completion)
+    }
+    private func requestDataTask<T: Decodable> (url: URLRequest, completion: @escaping ResponseHandler<T>) {
+        session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
-                completion(.failure(APIError.api(description: error?.localizedDescription ?? "request error found")))
+                completion(.failure(APIError(type: .api, message: "api error")))
                 return
             }
             guard let data = data
-                else {
-                    completion(.failure(APIError.api(description: error?.localizedDescription ?? "no data found")))
-                    return
-            }
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode) else {
-                    completion(.failure(APIError.api(description: error?.localizedDescription)))
+            else {
+                completion(.failure(APIError(type: .api, message: "api error")))
                 return
             }
             do {
-                    let decoder = JSONDecoder()
-                    let model = try decoder.decode(T.self, from: data)
-                    completion(.success(model))
-            }catch let jsonError {
-                completion(.failure(APIError.parsing(description: jsonError.localizedDescription)))
+                guard let httpResponse = response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode) else {
+                          let decoder = JSONDecoder()
+                          let model = try decoder.decode(APIError.self, from: data)
+                          completion(.failure(model))
+                          return
+                      }
+                
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(T.self, from: data)
+                completion(.success(model))
+            }catch {
+                completion(.failure(APIError(type: .parsing, message: "parsing error")))
             }
         }.resume()
     }
+    
     private func buildRequest(_ apiComponent: APIComponent) -> URLRequest {
         var component: URLComponents = URLComponents()
         component.host = apiComponent.baseUrl
@@ -56,6 +69,7 @@ class NetworkManager {
             }
         }
         var urlRequest = URLRequest(url: component.url!)
+        print(urlRequest)
         urlRequest.httpMethod = apiComponent.method.rawValue
         configureHeaders(headers: apiComponent.headers, request: &urlRequest)
         return urlRequest

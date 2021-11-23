@@ -38,6 +38,7 @@ extension UIFont {
                 self.init(myCoder: aDecoder)
                 return
         }
+        
         self.init(name: fontAttribute, size: fontDescriptor.pointSize)!
     }
     class func overrideInitialize() {
