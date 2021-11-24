@@ -35,4 +35,29 @@ extension APIComponent {
     var scheme: String {
         return "https"
     }
+  func buildRequest() -> URLRequest {
+        let apiComponent: APIComponent = self
+        var component: URLComponents = URLComponents()
+        component.host = apiComponent.baseUrl
+        component.scheme = apiComponent.scheme
+        component.path = apiComponent.path
+        if let parameter = apiComponent.parameter {
+            parameter.forEach {
+                if component.queryItems == nil {
+                    component.queryItems = []
+                }
+                component.queryItems?.append(URLQueryItem(name: $0.key, value: $0.value))
+            }
+        }
+        var urlRequest = URLRequest(url: component.url!)
+        print(urlRequest)
+        urlRequest.httpMethod = apiComponent.method.rawValue
+        configureHeaders(headers: apiComponent.headers, request: &urlRequest)
+        return urlRequest
+    }
+    private func configureHeaders(headers: [String: String]?, request: inout URLRequest) {
+        headers?.forEach {
+            request.setValue($0.value, forHTTPHeaderField: $0.key)
+        }
+    }
 }

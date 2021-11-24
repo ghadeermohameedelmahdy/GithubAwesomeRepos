@@ -15,8 +15,9 @@ class GithubReposUsecase: GithubReposUsecaseProtocol {
     private init() {}
     func fetchReposList(page: Int, completion: @escaping ResponseHandler<[GithubRepoModel]?>) {
         let apiComponent = GithubReposAPIComponents( requestType: .reposList, parameter: ["q":"tetris+language:assembly","page":"\(page)", "per_page":"1"])
-        NetworkManager.shared.performNetworRequest(apiComponent) { result in
-            completion(result)
-        }
+        networkCallForReposList(from: apiComponent.buildRequest(), completion: completion)
+    }
+    func networkCallForReposList (from urlRequest: URLRequest, completion: @escaping ResponseHandler<[GithubRepoModel]?>) {
+        NetworkManager.shared.performNetworRequest(urlRequest: urlRequest, completion: completion)
     }
 }
