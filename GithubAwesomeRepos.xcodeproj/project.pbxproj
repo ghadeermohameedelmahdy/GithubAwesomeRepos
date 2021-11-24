@@ -58,6 +58,9 @@
 		E3EF5822274E6E08003FB534 /* GithubRepoDetailsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5821274E6E08003FB534 /* GithubRepoDetailsCollectionView.swift */; };
 		E3EF582C274E8EDF003FB534 /* reposStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E3EF582B274E8EDF003FB534 /* reposStub.json */; };
 		E3EF582F274E900F003FB534 /* GithubReposListUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF582E274E900F003FB534 /* GithubReposListUsecaseTest.swift */; };
+		E3EF5832274E9DDD003FB534 /* GithubReposListUsecaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5831274E9DDD003FB534 /* GithubReposListUsecaseMock.swift */; };
+		E3EF5834274E9FFD003FB534 /* GithubReposListViewmodelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */; };
+		E3EF5836274EA1AE003FB534 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5835274EA1AE003FB534 /* StubGenerator.swift */; };
 		FBA87B663FD36ABEF0FCB869 /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75D3CC6DE72AB6EB2F8998E /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +143,9 @@
 		E3EF582B274E8EDF003FB534 /* reposStub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reposStub.json; sourceTree = "<group>"; };
 		E3EF582E274E900F003FB534 /* GithubReposListUsecaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListUsecaseTest.swift; sourceTree = "<group>"; };
 		E3EF5830274E9098003FB534 /* GithubAwesomeReposTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubAwesomeReposTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E3EF5831274E9DDD003FB534 /* GithubReposListUsecaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListUsecaseMock.swift; sourceTree = "<group>"; };
+		E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListViewmodelTest.swift; sourceTree = "<group>"; };
+		E3EF5835274EA1AE003FB534 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		E5C80F2CAA93DA6EE2C569C0 /* Pods-GithubAwesomeRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubAwesomeRepos.debug.xcconfig"; path = "Target Support Files/Pods-GithubAwesomeRepos/Pods-GithubAwesomeRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		F9285EFC7B056FD8A85B5204 /* Pods_GithubAwesomeReposTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubAwesomeReposTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -477,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				E3EF582B274E8EDF003FB534 /* reposStub.json */,
+				E3EF5835274EA1AE003FB534 /* StubGenerator.swift */,
 			);
 			path = stubs;
 			sourceTree = "<group>";
@@ -484,6 +491,7 @@
 		E3EF5824274E8760003FB534 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
+				E3EF5831274E9DDD003FB534 /* GithubReposListUsecaseMock.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -501,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				E3EF582E274E900F003FB534 /* GithubReposListUsecaseTest.swift */,
+				E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */,
 			);
 			path = "Github repos list test";
 			sourceTree = "<group>";
@@ -795,6 +804,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3EF5832274E9DDD003FB534 /* GithubReposListUsecaseMock.swift in Sources */,
+				E3EF5836274EA1AE003FB534 /* StubGenerator.swift in Sources */,
+				E3EF5834274E9FFD003FB534 /* GithubReposListViewmodelTest.swift in Sources */,
 				E3EF582F274E900F003FB534 /* GithubReposListUsecaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
