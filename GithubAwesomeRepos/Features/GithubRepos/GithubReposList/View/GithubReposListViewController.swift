@@ -7,7 +7,7 @@
 
 import UIKit
 import XCoordinator
-class GithubReposListViewController: UIViewController {
+class GithubReposListViewController: ViewControllerWithSettings {
     // MARK:- IBOutlets and Variables
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var reposSearchBar: UISearchBar!
@@ -45,6 +45,7 @@ class GithubReposListViewController: UIViewController {
     }
     private func setupUI (){
         self.title = "Github Awesome Repositories"
+        self.checkForNetworkAvailibilty()
         setupSearchbar()
         setupTableView()
         activityIndicator.hidesWhenStopped = true

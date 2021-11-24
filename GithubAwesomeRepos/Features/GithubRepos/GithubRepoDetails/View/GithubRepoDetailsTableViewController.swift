@@ -7,7 +7,7 @@
 
 import UIKit
 import XCoordinator
-class GithubRepoDetailsTableViewController: UITableViewController {
+class GithubRepoDetailsTableViewController: ViewControllerWithSettings {
 
     // MARK: - IBOutlets and Variables
     
