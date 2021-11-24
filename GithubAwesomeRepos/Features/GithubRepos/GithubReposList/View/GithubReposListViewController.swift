@@ -26,16 +26,20 @@ class GithubReposListViewController: UIViewController {
     // MARK:- Helper functions
     private func initViewModel(){
         dataViewModel?.reloadTableView = {
-            DispatchQueue.main.async { self.tableView.reloadData() }
+            DispatchQueue.main.async {[weak self] in self?.tableView.reloadData()}
         }
-        dataViewModel?.showError = { message in
-            DispatchQueue.main.async { self.showAlert(message ?? "something went wrong") }
+        dataViewModel?.showError = { [weak self] in
+            DispatchQueue.main.async {
+                if let message = self?.dataViewModel?.alertMessage {
+                    self?.showAlert(message)
+                }
+            }
         }
         dataViewModel?.showLoading = {
-            DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+            DispatchQueue.main.async { [weak self] in self?.activityIndicator.startAnimating() }
         }
         dataViewModel?.hideLoading = {
-            DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+            DispatchQueue.main.async { [weak self] in self?.activityIndicator.stopAnimating() }
         }
         dataViewModel?.fetchFirstPage()
     }

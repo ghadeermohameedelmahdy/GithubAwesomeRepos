@@ -16,12 +16,17 @@ class GithubReposListViewModel {
         self.usecase = usecase
     }
     private var data: [GithubRepoModel] = []
-    // MARK: - UI Callback
+    // MARK: -  callback for interfaces
     var reloadTableView: (()->())?
-    var showError: ((String?)->())?
+    var showError: (()->())?
     var showLoading: (()->())?
     var hideLoading: (()->())?
     
+    var alertMessage: String? {
+        didSet {
+            self.showError?()
+        }
+    }
     private(set) var cellViewModels: [DataListCellViewModel] = [DataListCellViewModel]() {
         didSet {
             self.reloadTableView?()
@@ -35,8 +40,6 @@ class GithubReposListViewModel {
     private func fetchReposPage (page: Int) {
         usecase.fetchReposList(page: page) { [weak self] result in
             guard let self = self else {return}
-            DispatchQueue.main.async {
-                self.hideLoading?()
                 switch result {
                 case .success(let repos):
                     let cellDataSource = repos?.compactMap({DataListCellViewModel(repoModel: $0)}) ?? []
@@ -44,9 +47,8 @@ class GithubReposListViewModel {
                     self.cellViewModels.append(contentsOf: cellDataSource)
                     self.reloadTableView?()
                 case .failure(let error):
-                    self.showError?(error.buildErrorMessage())
+                    self.alertMessage = error.buildErrorMessage()
                 }
-            }
             
         }
     }
