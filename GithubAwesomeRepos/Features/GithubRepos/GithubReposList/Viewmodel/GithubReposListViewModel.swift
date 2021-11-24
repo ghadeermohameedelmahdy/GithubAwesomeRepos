@@ -40,6 +40,7 @@ class GithubReposListViewModel {
     private func fetchReposPage (page: Int) {
         usecase.fetchReposList(page: page) { [weak self] result in
             guard let self = self else {return}
+            self.hideLoading?()
                 switch result {
                 case .success(let repos):
                     let cellDataSource = repos?.compactMap({DataListCellViewModel(repoModel: $0)}) ?? []

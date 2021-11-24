@@ -61,6 +61,9 @@
 		E3EF5832274E9DDD003FB534 /* GithubReposListUsecaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5831274E9DDD003FB534 /* GithubReposListUsecaseMock.swift */; };
 		E3EF5834274E9FFD003FB534 /* GithubReposListViewmodelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */; };
 		E3EF5836274EA1AE003FB534 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5835274EA1AE003FB534 /* StubGenerator.swift */; };
+		E3EF5838274EBF9A003FB534 /* CustomFailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF5837274EBF9A003FB534 /* CustomFailScreen.swift */; };
+		E3EF583B274ECCA7003FB534 /* CustomFailScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3EF583A274ECCA7003FB534 /* CustomFailScreen.xib */; };
+		E3EF583D274ED19B003FB534 /* ViewControllerWithSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF583C274ED19B003FB534 /* ViewControllerWithSettings.swift */; };
 		FBA87B663FD36ABEF0FCB869 /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75D3CC6DE72AB6EB2F8998E /* Pods_GithubAwesomeRepos_GithubAwesomeReposUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +149,9 @@
 		E3EF5831274E9DDD003FB534 /* GithubReposListUsecaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListUsecaseMock.swift; sourceTree = "<group>"; };
 		E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposListViewmodelTest.swift; sourceTree = "<group>"; };
 		E3EF5835274EA1AE003FB534 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
+		E3EF5837274EBF9A003FB534 /* CustomFailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFailScreen.swift; sourceTree = "<group>"; };
+		E3EF583A274ECCA7003FB534 /* CustomFailScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFailScreen.xib; sourceTree = "<group>"; };
+		E3EF583C274ED19B003FB534 /* ViewControllerWithSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWithSettings.swift; sourceTree = "<group>"; };
 		E5C80F2CAA93DA6EE2C569C0 /* Pods-GithubAwesomeRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubAwesomeRepos.debug.xcconfig"; path = "Target Support Files/Pods-GithubAwesomeRepos/Pods-GithubAwesomeRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		F9285EFC7B056FD8A85B5204 /* Pods_GithubAwesomeReposTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubAwesomeReposTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -326,6 +332,7 @@
 		E37D500A274C09DC00DC8A6F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E3EF5839274ECC8A003FB534 /* Fail view */,
 				E37D5038274C623D00DC8A6F /* AppStoryBoards.swift */,
 				E37D500B274C09F500DC8A6F /* ImageViewExt.swift */,
 				E37D500D274C0A0500DC8A6F /* StringExt.swift */,
@@ -369,10 +376,10 @@
 		E37D502A274C5A4F00DC8A6F /* GithubRepoDetails */ = {
 			isa = PBXGroup;
 			children = (
+				E3EF583F274ED2EB003FB534 /* Model */,
 				E37D5066274DCF4F00DC8A6F /* Usecase */,
 				E37D5058274DB5FE00DC8A6F /* Viewmodel */,
 				E37D5057274DB5F700DC8A6F /* View */,
-				E37D5064274DC61D00DC8A6F /* RepoDetailsSectionModel.swift */,
 			);
 			path = GithubRepoDetails;
 			sourceTree = "<group>";
@@ -407,7 +414,7 @@
 		E37D503E274D52B300DC8A6F /* GithubRepos */ = {
 			isa = PBXGroup;
 			children = (
-				E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */,
+				E3EF583E274ED2B0003FB534 /* Common */,
 				E37D5029274C5A4200DC8A6F /* GithubReposList */,
 				E37D502A274C5A4F00DC8A6F /* GithubRepoDetails */,
 			);
@@ -512,6 +519,32 @@
 				E3EF5833274E9FFD003FB534 /* GithubReposListViewmodelTest.swift */,
 			);
 			path = "Github repos list test";
+			sourceTree = "<group>";
+		};
+		E3EF5839274ECC8A003FB534 /* Fail view */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF5837274EBF9A003FB534 /* CustomFailScreen.swift */,
+				E3EF583A274ECCA7003FB534 /* CustomFailScreen.xib */,
+			);
+			path = "Fail view";
+			sourceTree = "<group>";
+		};
+		E3EF583E274ED2B0003FB534 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF583C274ED19B003FB534 /* ViewControllerWithSettings.swift */,
+				E37D503C274C650800DC8A6F /* GithubReposStoryBoard.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E3EF583F274ED2EB003FB534 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E37D5064274DC61D00DC8A6F /* RepoDetailsSectionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +661,7 @@
 				E37D5032274C5F9C00DC8A6F /* githubLottie.json in Resources */,
 				E37D5061274DBCFA00DC8A6F /* BasicDataCollectionViewCell.xib in Resources */,
 				E37D4FC2274C020B00DC8A6F /* Assets.xcassets in Resources */,
+				E3EF583B274ECCA7003FB534 /* CustomFailScreen.xib in Resources */,
 				E37D4FBD274C020700DC8A6F /* Main.storyboard in Resources */,
 				E37D503D274C650800DC8A6F /* GithubReposStoryBoard.storyboard in Resources */,
 				E37D504C274D5CCF00DC8A6F /* GithubRepoItemTableViewCell.xib in Resources */,
@@ -773,6 +807,7 @@
 				E37D504E274D7BD600DC8A6F /* DataListCellViewModel.swift in Sources */,
 				E37D4FF5274C08F700DC8A6F /* ColorPalette.swift in Sources */,
 				E37D5039274C623D00DC8A6F /* AppStoryBoards.swift in Sources */,
+				E3EF583D274ED19B003FB534 /* ViewControllerWithSettings.swift in Sources */,
 				E37D5065274DC61D00DC8A6F /* RepoDetailsSectionModel.swift in Sources */,
 				E37D502C274C5A7700DC8A6F /* GithubReposListViewModel.swift in Sources */,
 				E37D502F274C5DE800DC8A6F /* CustomSplashScreenViewController.swift in Sources */,
@@ -784,6 +819,7 @@
 				E3EF5822274E6E08003FB534 /* GithubRepoDetailsCollectionView.swift in Sources */,
 				E37D5034274C613F00DC8A6F /* UIViewControllerExt.swift in Sources */,
 				E37D5019274C110D00DC8A6F /* GithubReposAPIComponents.swift in Sources */,
+				E3EF5838274EBF9A003FB534 /* CustomFailScreen.swift in Sources */,
 				E37D500C274C09F500DC8A6F /* ImageViewExt.swift in Sources */,
 				E37D5037274C619000DC8A6F /* AppNavigationCoordinator.swift in Sources */,
 				E37D5040274D57C300DC8A6F /* GithubReposTableView.swift in Sources */,

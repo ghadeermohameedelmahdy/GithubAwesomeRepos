@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 extension UIView {
+    // get parent viewcontroller
     var parentViewController: UIViewController? {
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
