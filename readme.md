@@ -13,7 +13,7 @@ This is a sample code for MVVM with dependency injection.
 - Unit Testing.
 
 ## Important Notes:
-  
-- pod install is required
+- for the best result , run this project with xcode 13.1 and above version.
+- pod install is required.
 - To run on xcode 13.1 and above , please checkout development branch,
 for xcode 12 and above compatibilty , please checkout bugfix/xcode12 branch.
