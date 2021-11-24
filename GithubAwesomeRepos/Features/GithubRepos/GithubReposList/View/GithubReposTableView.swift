@@ -26,10 +26,15 @@ extension  GithubReposListViewController: UITableViewDataSource, UITableViewDele
             fatalError("Cell not exists in storyboard")
         }
         let cellViewModel = dataViewModel?.getCellViewModel( at: indexPath )
+        cellViewModel?.createCellDataSource()
         cell.cellViewModel = cellViewModel
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellViewModel = dataViewModel?.getCellViewModel( at: indexPath )
+        guard let model = cellViewModel?.repoModel else{return}
+        self.router?.trigger(.githubRepoDetails(model: model))
+    }
     // MARK:- Tableview delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

@@ -42,7 +42,6 @@ struct GithubRepoModel: Codable {
     var visibility: String?
     var defaultBranch: String?
     var networkCount, subscribersCount: Int?
-
     enum CodingKeys: String, CodingKey {
         case id
         case nodeID = "node_id"
@@ -92,7 +91,7 @@ struct GithubRepoModel: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case pushedAt = "pushed_at"
-        case gitURL = "git_url"
+        case gitURL = "svn_url"
         case sshURL = "ssh_url"
         case homepage
         case language

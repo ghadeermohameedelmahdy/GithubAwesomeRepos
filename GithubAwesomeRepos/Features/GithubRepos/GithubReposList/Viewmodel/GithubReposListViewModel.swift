@@ -7,7 +7,7 @@
 
 import Foundation
 class GithubReposListViewModel {
-    // MARK:- init
+    // MARK: - init
     let usecase: GithubReposUsecaseProtocol
     /**
      here using dependency injection concept to make it easily for unit testing, more abstracted to reuse this viewModel if needed.
@@ -15,19 +15,19 @@ class GithubReposListViewModel {
     init(usecase: GithubReposUsecaseProtocol = GithubReposUsecase.shared) {
         self.usecase = usecase
     }
-    var data: [GithubRepoModel] = []
-    // MARK:- UI Callback
+    private var data: [GithubRepoModel] = []
+    // MARK: - UI Callback
     var reloadTableView: (()->())?
     var showError: ((String?)->())?
     var showLoading: (()->())?
     var hideLoading: (()->())?
     
-    private var cellViewModels: [DataListCellViewModel] = [DataListCellViewModel]() {
+    private(set) var cellViewModels: [DataListCellViewModel] = [DataListCellViewModel]() {
         didSet {
             self.reloadTableView?()
         }
     }
-    // MARK:- Network Calls
+    // MARK: - Network Calls
     func fetchFirstPage(){
         showLoading?()
         fetchReposPage(page: 0)
@@ -39,7 +39,7 @@ class GithubReposListViewModel {
                 self.hideLoading?()
                 switch result {
                 case .success(let repos):
-                    let cellDataSource = DataListCellViewModel.createCellDataSource(with: repos ?? [])
+                    let cellDataSource = repos?.compactMap({DataListCellViewModel(repoModel: $0)}) ?? []
                     self.data.append(contentsOf: repos ?? [])
                     self.cellViewModels.append(contentsOf: cellDataSource)
                     self.reloadTableView?()
@@ -50,12 +50,25 @@ class GithubReposListViewModel {
             
         }
     }
+   
     
+    // MARK: - UI Setup
     var numberOfCells: Int {
         return cellViewModels.count
     }
     
     func getCellViewModel( at indexPath: IndexPath ) -> DataListCellViewModel {
-        return cellViewModels[indexPath.row]
+        return cellViewModels[indexPath.section]
+    }
+    // MARK: Searchbar
+    func searchRepositoryName(_ word: String? = nil) {
+        if let word = word, !word.isEmpty {
+           let filterdModels = data.filter { repoModel in
+                repoModel.fullName?.contains(word) ?? false
+            }
+            self.cellViewModels = filterdModels.compactMap({DataListCellViewModel(repoModel: $0)})
+        }else {
+            self.cellViewModels = data.compactMap({DataListCellViewModel(repoModel: $0)})
+        }
     }
 }

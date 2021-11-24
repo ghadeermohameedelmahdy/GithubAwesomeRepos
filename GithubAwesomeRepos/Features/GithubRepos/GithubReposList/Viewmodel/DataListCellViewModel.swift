@@ -6,23 +6,28 @@
 //
 
 import Foundation
+/**
+ cell viewmodel to be used with ui
+ */
 class DataListCellViewModel: NSObject {
-    init(titleText: String? = nil, subTitleText: String? = nil, imageURL: String? = nil, detailsURL: String? = nil, extraDetails: String? = nil) {
-        self.titleText = titleText
-        self.subTitleText = subTitleText
-        self.imageURL = imageURL
-        self.detailsURL = detailsURL
-        self.extraDetails = extraDetails
+    init(repoModel: GithubRepoModel) {
+        self.repoModel = repoModel
     }
-    var titleText: String?
-    var subTitleText: String?
-    var imageURL: String?
-    var detailsURL: String?
-    var extraDetails: String?
-    
-    static func createCellDataSource(with data: [GithubRepoModel]) -> [DataListCellViewModel] {
-       return data.compactMap { model in
-           DataListCellViewModel(titleText: "Repository Name : \(model.name ?? "")" , subTitleText: "Repository Name : \(model.owner?.login ?? "")", imageURL: model.owner?.avatarURL,detailsURL: model.url, extraDetails: model.createdAt != nil ? "Created At : \(model.createdAt ?? "")" : nil)
+    private(set) var titleText: String?
+    private(set) var subTitleText: String?
+    private(set) var imageURL: String?
+    private(set) var detailsURL: String?
+    private(set) var extraDetails: String?
+    var repoModel: GithubRepoModel {
+        didSet {
+            createCellDataSource()
         }
+    }
+   func createCellDataSource() {
+        titleText = "Repository Name : \(repoModel.name ?? "")"
+        subTitleText = "Repository Name : \(repoModel.owner?.login ?? "")"
+        imageURL = repoModel.owner?.avatarURL
+        detailsURL = repoModel.url
+        extraDetails = repoModel.createdAt != nil ? "Created At : \(repoModel.createdAt?.getFormattedDate() ?? "")" : nil
     }
 }

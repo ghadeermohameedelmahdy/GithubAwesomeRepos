@@ -6,14 +6,15 @@
 //
 
 import UIKit
-
+import XCoordinator
 class GithubReposListViewController: UIViewController {
     // MARK:- IBOutlets and Variables
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var reposSearchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var dataViewModel: GithubReposListViewModel?
-    
+    var router: UnownedRouter<HomeNavigationRoute>?
     // MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,11 @@ class GithubReposListViewController: UIViewController {
         dataViewModel?.fetchFirstPage()
     }
     private func setupUI (){
-        self.title = "Github Awesome Repos"
+        self.title = "Github Awesome Repositories"
+        setupSearchbar()
         setupTableView()
         activityIndicator.hidesWhenStopped = true
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK:- IBActions

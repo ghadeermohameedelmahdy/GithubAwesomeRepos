@@ -49,28 +49,20 @@ class GithubRepoItemTableViewCell: UITableViewCell {
         detailsLabel.textColor = colorPalette.smallTextColor
         self.parentView.backgroundColor = colorPalette.basicBackgroundColor
     }
-    func setupDetails (requiredDetails: String?) {
-        detailsLabel.text = requiredDetails
-        cellViewModel?.extraDetails = requiredDetails
+    func setupDetails () {
+        detailsLabel.text = cellViewModel?.extraDetails ?? ""
         isCellLoading = false
     }
     private func loadModelDetailsIfNeeded () {
         if let url = cellViewModel?.detailsURL, cellViewModel?.extraDetails == nil , !self.isCellLoading {
             isCellLoading = true
-            self.loadDataUsingCache(withUrl: url)
+            self.loadData(withUrl: url)
         }
     }
     
 }
-fileprivate let cellCache = NSCache<NSString, NSString>()
 extension GithubRepoItemTableViewCell {
-    func loadDataUsingCache(withUrl urlString : String) {
-        // check cached image
-        if let cachedObject = cellCache.object(forKey: urlString as NSString) as String?  {
-            self.setupDetails(requiredDetails: cachedObject)
-            return
-        }
-        
+    func loadData(withUrl urlString : String) {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
@@ -83,12 +75,12 @@ extension GithubRepoItemTableViewCell {
             switch res {
             case .success(let repo):
                 if let repo = repo {
-                    self?.setupDetails(requiredDetails: repo.createdAt?.getFormattedDate())
-                   
+                    self?.cellViewModel?.repoModel = repo
+                    self?.setupDetails()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.setupDetails(requiredDetails: nil)
+                self?.setupDetails()
             }
           }
         }
